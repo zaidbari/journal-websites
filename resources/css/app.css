@@ -30,3 +30,17 @@ a, button, input, textarea {
 .btn-primary-link {
 	@apply font-medium leading-5 my-2 hover:text-emerald-700 transition duration-150 ease-in-out bg-white text-emerald-500 whitespace-nowrap inline-block text-sm mr-5 text-center
 }
+
+.btn-danger-link {
+	@apply font-medium leading-5 my-2 hover:text-rose-700 transition duration-150 ease-in-out bg-white text-rose-500 whitespace-nowrap inline-block text-sm mr-5 text-center
+}
+
+
+.serif { font-family: 'Lusitana', serif; }
+h1 { @apply text-2xl; }
+h2 { @apply text-xl; }
+h3 { @apply text-lg; }
+
+.with-transition {
+	@apply transition duration-150 ease-in-out;
+}
