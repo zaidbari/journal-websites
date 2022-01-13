@@ -4,10 +4,10 @@
 	<header class="py-10 max-w-7xl px-5 mx-auto">
 		<div class="grid grid-cols-8 md:grid-cols-9 lg:grid-cols-8">
 			<div class="col-span-8 md:col-span-2 lg:col-span-2 mb-5">
-				<img src="https://epublishing.io/storage/{{$data['journal']['cover']}}" class="w-64 rounded shadow-lg" alt="{{ env('APP_NAME') }} Journal Cover" />
+				<img src="https://epublishing.io/storage/{{ $data['journal']['cover'] }}" class="w-64 rounded shadow-lg" alt="{{ env('JOURNAL_NAME') }} Journal Cover" />
 			</div>
 			<div class="col-span-8 md:col-span-6 lg:col-span-6">
-				<h1 class="font-medium mb-4">{{ env('APP_NAME') }}</h1>
+				<h1 class="font-medium mb-4">{{ env('JOURNAL_ABBREV') }}</h1>
 				<p class="leading-6 mb-4">{!! $data['short_desc'] !!}</p>
 				<a href="/" class="btn-primary">
 					Guide for authors
@@ -24,7 +24,7 @@
 				<div class="grid grid-cols-9 border-t-2 border-b-2 mt-4 md:grid-cols-9 py-5 mb-5 lg:grid-cols-9 items-center">
 					@foreach( $data['metrics'] as $metrics)
 						<div class="col-span-9 md:col-span-3 lg:col-span-3 py-2">
-							<h3 class="text-2xl font-medium mb-3 lowercase">{{ $metrics['value'] }}</h3>
+							<h3 class="text-2xl font-medium mb-3 text-teal-500 lowercase">{{ $metrics['value'] }}</h3>
 							<p class="text-sm">{{ $metrics['title'] }}</p>
 						</div>
 					@endforeach

@@ -1,7 +1,7 @@
 <nav class="w-full bg-white text-black py-5 border-b">
 	<div class="max-w-7xl mx-auto flex flex-col px-5  md:items-center md:justify-between md:flex-row">
 		<div class="flex flex-row items-center justify-between">
-			<a href="/" class="text-3xl font-bold text-emerald-500">{{ config('journal.abbrev') }}</a>
+			<a href="/" class="text-3xl font-bold text-teal-500">{{ env('JOURNAL_ABBREV') }}</a>
 			<button class="md:hidden rounded focus:outline-none focus:shadow-outline" id="nav_button">
 				<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
 					<path id="menu_icon" class="" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -24,7 +24,7 @@
 				<div
 					class="dropdown-menu">
 					<div
-						class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+						class="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg outline-none"
 						role="menu">
 						<div class="py-1">
 							<a href="{{ route('current') }}"
@@ -75,7 +75,7 @@
 				<div
 					class="dropdown-menu">
 					<div
-						class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+						class="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg outline-none"
 						role="menu">
 						<div class="py-1">
 							<a href="{{ route('current') }}"
@@ -104,7 +104,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="dropdown">
+			<a href="{{ env('API_HOST') }}/journals/{{ env('journal_id') }}/submit_manuscript/register"
+			   target="_blank"
+			   rel="noreferrer noopener"
+			   class="nav--item mr-5"
+			>
+				Submit Manuscript
+			</a>
+			<div class="dropdown -mt-1">
 				<button
 					class="nav--item"
 					type="button" aria-haspopup="true" aria-expanded="true">
@@ -117,10 +124,10 @@
 				</button>
 				<div class="dropdown-menu">
 					<div
-						class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+						class="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg outline-none"
 						role="menu">
 						<div class="py-1">
-							<a href="{{ config('journal.author_login') }}" tabindex="-1"
+							<a href="{{ env('API_HOST') }}/journals/auth/{{ env('journal_id') }}/author/login" tabindex="-1"
 							   class="dropdown-item"
 							   role="menuitem"
 							   target="_blank"
@@ -128,7 +135,7 @@
 							>
 								Author login
 							</a>
-							<a href="{{ config('journal.reviewer_login') }}" tabindex="-2"
+							<a href="{{ env('API_HOST') }}/journals/auth/{{ env('journal_id') }}/reviewer/login" tabindex="-2"
 							   class="dropdown-item"
 							   role="menuitem"
 							   target="_blank"

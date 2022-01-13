@@ -9,6 +9,8 @@ Route::get('/current-issue', [ ArticleController::class, 'currentIssue'])->name(
 Route::get('/latest-articles', [ HomeController::class, 'index'])->name('latest');
 Route::get('/archives', [ HomeController::class, 'index'])->name('archives');
 
-Route::get('/page/{slug}', [ArticleController::class, 'show'])->where('slug', '.*');
+Route::get('/page/{slug}', [ArticleController::class, 'show'])->where('slug', '.*')->name('page');
 
-Route::get('/{doi}', [ArticleController::class, 'show'])->where('doi', '.*');
+Route::get( '/'. env('JOURNAL_DOI') . '-{article_id}', [ArticleController::class, 'show'])
+	->whereNumber('article_id')
+	->name('article');

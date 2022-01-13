@@ -11,10 +11,8 @@ class ArticleController extends Controller
 		return view('pages.issues.index', ['title' => 'Current Issue']);
     }
 
-	public function show( $doi ) : View
+	public function show( $article_id ) : View
 	{
-		$id = explode("-",$doi)[1];
-
 		return view('pages.issues.index', ['title' => 'Current Issue']);
 	}
 }
