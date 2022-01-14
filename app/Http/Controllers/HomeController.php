@@ -12,8 +12,8 @@ class HomeController extends Controller
 		$title = "Home";
 		$data = Http::get(env('API_URL') . 'home')->json('data');
 
-		$articles = $data['articles'];
-		return view('pages.home.index', compact('title', 'data', 'articles'));
-    }
+//		$data = [];
+		return view('pages.home.index', compact('title', 'data'));
+	}
 
 }

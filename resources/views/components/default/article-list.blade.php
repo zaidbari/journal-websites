@@ -6,11 +6,11 @@
 			<h3 class="serif mt-2">
 				<a href="{{ route('article', $article['id']) }}" class="hover:underline decoration-teal-500 decoration-2 underline-offset-4 with-transition">{!! $article['title'] !!}</a>
 			</h3>
-			<p class="text-sm">{{ $article['authors_names'] }}</p>
+			<p class="text-sm">{{ $article['authors_names'] ?? "" }}</p>
 			<div class="flex justify-between md:flex-row flex-col pt-4 items-center">
 				<p class="text-sm divide-x-2">
-					<span class="font-bold pr-2 text-teal-500">{{$article['type']}} </span>
-					<span class="pl-2">{{ \Carbon\Carbon::parse($article['published_at'])->format('j F, Y') }}</span>
+					<span class="font-bold pr-2 text-teal-500">{{ $article['type'] }}</span>
+					<span class="pl-2">{{ isset($article['published_at']) ? \Carbon\Carbon::parse($article['published_at'])->format('j F, Y') : "" }}</span>
 				</p>
 				<div class="divide-x-2">
 					<a href="/" class="btn-danger-link" target="_blank">
